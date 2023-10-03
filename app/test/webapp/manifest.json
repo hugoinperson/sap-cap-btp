@@ -1,7 +1,7 @@
 {
     "_version": "1.49.0",
     "sap.app": {
-        "id": "ns.risks",
+        "id": "ns.test",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "applicationVersion": {
@@ -11,18 +11,18 @@
         "description": "{{appDescription}}",
         "resources": "resources.json",
         "sourceTemplate": {
-            "id": "@sap/generator-fiori:lrop",
+            "id": "@sap/generator-fiori:worklist",
             "version": "1.10.4",
-            "toolsId": "ea8a2421-a4c7-4b9c-87f2-dda44feb7c42"
+            "toolsId": "e51f662d-2ef4-4ec2-808a-8a150ac30e01"
         },
         "crossNavigation": {
             "inbounds": {
-                "Risks-display": {
+                "Test-display": {
                     "signature": {
                         "parameters": {},
                         "additionalParameters": "allowed"
                     },
-                    "semanticObject": "Risks",
+                    "semanticObject": "Test",
                     "action": "display"
                 }
             }
@@ -62,8 +62,12 @@
             "libs": {
                 "sap.m": {},
                 "sap.ui.core": {},
-                "sap.ushell": {},
-                "sap.fe.templates": {}
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
             }
         },
         "contentDensities": {
@@ -74,7 +78,7 @@
             "i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
-                    "bundleName": "ns.risks.i18n.i18n"
+                    "bundleName": "ns.test.i18n.i18n"
                 }
             },
             "": {
@@ -86,69 +90,43 @@
                     "autoExpandSelect": true,
                     "earlyRequests": true
                 }
-            },
-            "@i18n": {
-                "type": "sap.ui.model.resource.ResourceModel",
-                "uri": "i18n/i18n.properties"
             }
         },
         "resources": {
             "css": []
         },
         "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "ns.test.view",
+                "controlId": "app",
+                "controlAggregation": "pages",
+                "async": true
+            },
             "routes": [
                 {
-                    "pattern": ":?query:",
-                    "name": "RisksList",
-                    "target": "RisksList"
-                },
-                {
-                    "pattern": "Risks({key}):?query:",
-                    "name": "RisksObjectPage",
-                    "target": "RisksObjectPage"
+                    "pattern": "",
+                    "name": "main",
+                    "target": [
+                        "main"
+                    ]
                 }
             ],
             "targets": {
-                "RisksList": {
-                    "type": "Component",
-                    "id": "RisksList",
-                    "name": "sap.fe.templates.ListReport",
-                    "options": {
-                        "settings": {
-                            "entitySet": "Risks",
-                            "variantManagement": "Page",
-                            "navigation": {
-                                "Risks": {
-                                    "detail": {
-                                        "route": "RisksObjectPage"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "RisksObjectPage": {
-                    "type": "Component",
-                    "id": "RisksObjectPage",
-                    "name": "sap.fe.templates.ObjectPage",
-                    "options": {
-                        "settings": {
-                            "editableHeaderContent": true,
-                            "entitySet": "Risks"
-                        }
-                    }
+                "main": {
+                    "viewName": "Main",
+                    "viewId": "main",
+                    "title": "{i18n>worklistViewTitle}"
                 }
             }
         },
-        "extends": {
-            "extensions": {
-                "sap.ui.controllerExtensions": {}
-            }
+        "rootView": {
+            "viewName": "ns.test.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "app"
         }
-    },
-    "sap.fiori": {
-        "registrationIds": [],
-        "archeType": "transactional"
     },
     "sap.cloud": {
         "public": true,

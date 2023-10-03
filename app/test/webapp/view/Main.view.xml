@@ -1,0 +1,28 @@
+<mvc:View controllerName="ns.test.controller.Main"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:semantic="sap.f.semantic">
+
+    <semantic:SemanticPage id="page"
+        headerPinnable="false"
+        toggleHeaderOnTitleClick="false">
+
+        <semantic:titleHeading>
+            <Title id="title"
+                text="Test Page"
+                level="H2"/>
+        </semantic:titleHeading>
+
+        <semantic:content>
+            <Text id="welcome"
+                text="Hi ~~~~" />
+        </semantic:content>
+
+        <semantic:sendEmailAction>
+            <semantic:SendEmailAction id="shareEmail"
+                press=".onShareEmailPress"/>
+        </semantic:sendEmailAction>
+
+    </semantic:SemanticPage>
+
+</mvc:View>

@@ -1,8 +1,165 @@
 _schema-version: "3.1"
 ID: sap-cap-btp
+description: A simple CAP project.
 version: 1.0.0
-description: "A simple CAP project."
+modules:
+  - name: sap-cap-btp-srv
+    type: nodejs
+    path: gen/srv
+    requires:
+      - name: sap-cap-btp-uaa
+      - name: sap-cap-btp-db
+    provides:
+      - name: srv-api
+        properties:
+          srv-url: ${default-url}
+    parameters:
+      buildpack: nodejs_buildpack
+    build-parameters:
+      builder: npm-ci
+  - name: sap-cap-btp-db-deployer
+    type: hdb
+    path: gen/db
+    requires:
+      - name: sap-cap-btp-db
+    parameters:
+      buildpack: nodejs_buildpack
+  - name: sap-cap-btp-destinations
+    type: com.sap.application.content
+    requires:
+      - name: sap-cap-btp-uaa
+        parameters:
+          service-key:
+            name: sap-cap-btp-uaa-key
+      - name: sap-cap-btp-html5-repo-host
+        parameters:
+          service-key:
+            name: sap-cap-btp-html5-repo-host-key
+      - name: srv-api
+      - name: sap-cap-btp-destination
+        parameters:
+          content-target: true
+    parameters:
+      content:
+        instance:
+          destinations:
+            - Authentication: OAuth2UserTokenExchange
+              Name: sap-cap-btp-app-srv
+              TokenServiceInstanceName: sap-cap-btp-uaa
+              TokenServiceKeyName: sap-cap-btp-uaa-key
+              URL: ~{srv-api/srv-url}
+              sap.cloud.service: sap.cap.btp.service
+            - Name: sap-cap-btp-html5-repo-host
+              ServiceInstanceName: sap-cap-btp-html5-repo-host
+              ServiceKeyName: sap-cap-btp-html5-repo-host-key
+              sap.cloud.service: sap.cap.btp.service
+            - Authentication: OAuth2UserTokenExchange
+              Name: sap-cap-btp-uaa
+              ServiceInstanceName: sap-cap-btp-uaa
+              ServiceKeyName: sap-cap-btp-uaa-key
+              sap.cloud.service: sap.cap.btp.service
+          existing_destinations_policy: update
+    build-parameters:
+      no-source: true
+  - name: sap-cap-btp-app-content # deploys the ZIP files from the nsrisks.zip and nsmitigations.zip to the SAP HTML5 Application Repository service
+    type: com.sap.application.content
+    path: .
+    requires:
+      - name: sap-cap-btp-html5-repo-host
+        parameters:
+          content-target: true
+    build-parameters:
+      build-result: resources
+      requires:
+        - artifacts:
+            - nsrisks.zip
+          name: nsrisks
+          target-path: resources/
+        - artifacts:
+            - nsmitigations.zip
+          name: nsmitigations
+          target-path: resources/
+        - artifacts:
+            - nstest.zip
+          name: nstest
+          target-path: resources/
+  - name: nsrisks # Build of the SAP Fiori application. Each build result is a ZIP file
+    type: html5
+    path: app/risks
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm install
+        - npm run build:cf
+      supported-platforms: []
+  - name: nsmitigations # Build of the SAP Fiori application. Each build result is a ZIP file
+    type: html5
+    path: app/mitigations
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm install
+        - npm run build:cf
+      supported-platforms: []
+  - name: nstest # Build of the SAP Fiori application. Each build result is a ZIP file
+    type: html5
+    path: app/test
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm install
+        - npm run build:cf
+      supported-platforms: []
+resources:
+  - name: sap-cap-btp-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      config:
+        role-collections:
+          - description: Manage Risks
+            name: RiskManager-${space}
+            role-template-references:
+              - $XSAPPNAME.RiskManager
+          - description: View Risks
+            name: RiskViewer-${space}
+            role-template-references:
+              - $XSAPPNAME.RiskViewer
+        tenant-mode: dedicated
+        xsappname: sap-cap-btp-${org}-${space}
+      path: ./xs-security.json
+      service: xsuaa
+      service-plan: application
+  - name: sap-cap-btp-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+  - name: sap-cap-btp-destination
+    type: org.cloudfoundry.managed-service
+    parameters:
+      config:
+        HTML5Runtime_enabled: true
+        init_data:
+          instance:
+            destinations:
+              - Authentication: NoAuthentication
+                Name: ui5
+                ProxyType: Internet
+                Type: HTTP
+                URL: https://ui5.sap.com
+            existing_destinations_policy: update
+      service: destination
+      service-plan: lite
+  - name: sap-cap-btp-html5-repo-host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-host
 parameters:
+  deploy_mode: html5-repo
   enable-parallel-deployments: true
 build-parameters:
   before-all:
@@ -11,51 +168,3 @@ build-parameters:
         - npm install --production
         - npx -p @sap/cds-dk cds build --production
         - npx rimraf gen/db/src/gen/data
-modules:
-  - name: sap-cap-btp-srv
-    type: nodejs
-    path: gen/srv
-    parameters:
-      buildpack: nodejs_buildpack
-    build-parameters:
-      builder: npm
-    provides:
-      - name: srv-api # required by consumers of CAP services (e.g. approuter)
-        properties:
-          srv-url: ${default-url}
-    requires:
-      - name: sap-cap-btp-uaa
-      - name: sap-cap-btp-db
-
-  - name: sap-cap-btp-db-deployer
-    type: hdb
-    path: gen/db
-    parameters:
-      buildpack: nodejs_buildpack
-    requires:
-      - name: sap-cap-btp-db
-
-resources:
-  - name: sap-cap-btp-uaa
-    type: org.cloudfoundry.managed-service
-    parameters:
-      service: xsuaa
-      service-plan: application
-      path: ./xs-security.json
-      config:
-        xsappname: sap-cap-btp-${org}-${space}
-        tenant-mode: dedicated
-        role-collections:
-          - name: "RiskManager-${space}"
-            description: Manage Risks
-            role-template-references:
-              - $XSAPPNAME.RiskManager
-          - name: "RiskViewer-${space}"
-            description: View Risks
-            role-template-references:
-              - $XSAPPNAME.RiskViewer
-  - name: sap-cap-btp-db
-    type: com.sap.xs.hdi-container
-    parameters:
-      service: hana
-      service-plan: hdi-shared
