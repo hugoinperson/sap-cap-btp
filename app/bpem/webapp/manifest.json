@@ -50,7 +50,6 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
     "dependencies": {
       "minUI5Version": "1.118.1",
       "libs": {
@@ -91,11 +90,10 @@
     },
     "routing": {
       "config": {
-        "routerClass": "sap.m.routing.Router",
+        "routerClass": "sap.f.routing.Router",
         "viewType": "XML",
         "viewPath": "u4u.bpem.view",
         "controlId": "app",
-        "controlAggregation": "pages",
         "async": true
       },
       "routes": [
@@ -105,13 +103,34 @@
           "target": [
             "main"
           ]
+        },
+        {
+          "pattern": "overview",
+          "name": "overview",
+          "target": [
+            "overview"
+          ]
+        },
+        {
+          "pattern": "cases",
+          "name": "cases",
+          "target": [
+            "cases"
+          ]
         }
       ],
       "targets": {
         "main": {
           "viewName": "Main",
           "viewId": "main",
-          "title": "{i18n>overviewTitle}"
+          "title": "{i18n>overviewTitle}",
+          "controlAggregation": "beginColumnPages"
+        },
+        "overview": {
+          "viewName": "Overview",
+          "viewId": "overview",
+          "title": "{i18n>overviewTitle}",
+          "controlAggregation": "beginColumnPages"
         }
       }
     },
@@ -124,6 +143,6 @@
   },
   "sap.cloud": {
     "public": true,
-    "service": "sap.cap.btp.service"
+    "service": "u4u.service"
   }
 }

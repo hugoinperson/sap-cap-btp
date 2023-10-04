@@ -1,10 +1,67 @@
-<mvc:View controllerName="u4u.bpem.controller.App"
-  displayBlock="true"
+<mvc:View displayBlock="true"
   xmlns="sap.m"
-  xmlns:mvc="sap.ui.core.mvc">
+  xmlns:f="sap.f"
+  xmlns:tnt="sap.tnt"
+  xmlns:mvc="sap.ui.core.mvc"
+  controllerName="u4u.bpem.controller.App">
 
-  <App id="app"
-    busy="{appView>/busy}"
-    busyIndicatorDelay="{appView>/delay}"/>
+  <tnt:ToolPage>
+    <tnt:header>
+      <tnt:ToolHeader>
+        <Image class="sapUiSmallMarginBegin"
+          height="1.5rem"
+          src="img/logo.png" />
+        <Title level="H1"
+          text="{i18n>appTitle}">
+          <layoutData>
+            <OverflowToolbarLayoutData shrinkable="true" />
+          </layoutData>
+        </Title>
+        <ToolbarSpacer>
+          <layoutData>
+            <OverflowToolbarLayoutData priority="NeverOverflow"
+              minWidth="20px" />
+          </layoutData>
+        </ToolbarSpacer>
+        <tnt:ToolHeaderUtilitySeparator />
+        <Avatar initials="MN"
+          displaySize="XS">
+          <layoutData>
+            <OverflowToolbarLayoutData priority="NeverOverflow" />
+          </layoutData>
+        </Avatar>
+      </tnt:ToolHeader>
+    </tnt:header>
+    <tnt:subHeader>
+      <tnt:ToolHeader>
+        <IconTabHeader id="iconTabHeader"
+          items="{path: 'App>/navigation'}"
+          select=".onTabSelect"
+          mode="Inline">
+          <layoutData>
+            <OverflowToolbarLayoutData priority="NeverOverflow"
+              shrinkable="true" />
+          </layoutData>
+          <items>
+            <IconTabFilter items="{App>items}"
+              text="{App>title}"
+              key="{App>key}"
+              icon="{App>icon}">
+              <items>
+                <IconTabFilter text="{App>title}"
+                  key="{App>key}" />
+              </items>
+            </IconTabFilter>
+          </items>
+        </IconTabHeader>
+      </tnt:ToolHeader>
+    </tnt:subHeader>
+    <tnt:mainContents>
+      <f:FlexibleColumnLayout id="app"
+        stateChange="onStateChanged"
+        backgroundDesign="Solid"
+        layout="{/layout}" />
+    </tnt:mainContents>
+  </tnt:ToolPage>
 
 </mvc:View>

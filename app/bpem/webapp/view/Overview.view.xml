@@ -1,0 +1,27 @@
+<mvc:View xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:semantic="sap.f.semantic"
+  controllerName="u4u.bpem.controller.Overview">
+
+  <semantic:SemanticPage id="page"
+    headerPinnable="false"
+    toggleHeaderOnTitleClick="false">
+
+    <semantic:titleHeading>
+      <Title id="title"
+        text="Overview"
+        level="H2"/>
+    </semantic:titleHeading>
+
+    <semantic:content>
+      <Text id="welcome"
+        text="Overview" />
+    </semantic:content>
+
+    <semantic:sendEmailAction>
+      <semantic:SendEmailAction id="shareEmail" />
+    </semantic:sendEmailAction>
+
+  </semantic:SemanticPage>
+
+</mvc:View>

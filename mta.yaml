@@ -1,13 +1,13 @@
 _schema-version: "3.1"
-ID: sap-cap-btp
+ID: u4u
 description: A simple CAP project.
 version: 1.0.0
 modules:
-  - name: sap-cap-btp-srv
+  - name: u4u-srv
     type: nodejs
     path: gen/srv
     requires:
-      - name: sap-cap-btp-uaa
+      - name: u4u-uaa
     provides:
       - name: srv-api
         properties:
@@ -16,19 +16,19 @@ modules:
       buildpack: nodejs_buildpack
     build-parameters:
       builder: npm-ci
-  - name: sap-cap-btp-destinations
+  - name: u4u-destinations
     type: com.sap.application.content
     requires:
-      - name: sap-cap-btp-uaa
+      - name: u4u-uaa
         parameters:
           service-key:
-            name: sap-cap-btp-uaa-key
-      - name: sap-cap-btp-html5-repo-host
+            name: u4u-uaa-key
+      - name: u4u-html5-repo-host
         parameters:
           service-key:
-            name: sap-cap-btp-html5-repo-host-key
+            name: u4u-html5-repo-host-key
       - name: srv-api
-      - name: sap-cap-btp-destination
+      - name: u4u-destination
         parameters:
           content-target: true
     parameters:
@@ -36,28 +36,28 @@ modules:
         instance:
           destinations:
             - Authentication: OAuth2UserTokenExchange
-              Name: sap-cap-btp-app-srv
-              TokenServiceInstanceName: sap-cap-btp-uaa
-              TokenServiceKeyName: sap-cap-btp-uaa-key
+              Name: u4u-app-srv
+              TokenServiceInstanceName: u4u-uaa
+              TokenServiceKeyName: u4u-uaa-key
               URL: ~{srv-api/srv-url}
-              sap.cloud.service: sap.cap.btp.service
-            - Name: sap-cap-btp-html5-repo-host
-              ServiceInstanceName: sap-cap-btp-html5-repo-host
-              ServiceKeyName: sap-cap-btp-html5-repo-host-key
-              sap.cloud.service: sap.cap.btp.service
+              sap.cloud.service: u4u.service
+            - Name: u4u-html5-repo-host
+              ServiceInstanceName: u4u-html5-repo-host
+              ServiceKeyName: u4u-html5-repo-host-key
+              sap.cloud.service: u4u.service
             - Authentication: OAuth2UserTokenExchange
-              Name: sap-cap-btp-uaa
-              ServiceInstanceName: sap-cap-btp-uaa
-              ServiceKeyName: sap-cap-btp-uaa-key
-              sap.cloud.service: sap.cap.btp.service
+              Name: u4u-uaa
+              ServiceInstanceName: u4u-uaa
+              ServiceKeyName: u4u-uaa-key
+              sap.cloud.service: u4u.service
           existing_destinations_policy: update
     build-parameters:
       no-source: true
-  - name: sap-cap-btp-app-content # deploys the ZIP files from the nsrisks.zip and nsmitigations.zip to the SAP HTML5 Application Repository service
+  - name: u4u-app-content # deploys the ZIP files from the nsrisks.zip and nsmitigations.zip to the SAP HTML5 Application Repository service
     type: com.sap.application.content
     path: .
     requires:
-      - name: sap-cap-btp-html5-repo-host
+      - name: u4u-html5-repo-host
         parameters:
           content-target: true
     build-parameters:
@@ -78,7 +78,7 @@ modules:
         - npm run build:cf
       supported-platforms: []
 resources:
-  - name: sap-cap-btp-uaa
+  - name: u4u-uaa
     type: org.cloudfoundry.managed-service
     parameters:
       config:
@@ -92,11 +92,11 @@ resources:
             role-template-references:
               - $XSAPPNAME.RiskViewer
         tenant-mode: dedicated
-        xsappname: sap-cap-btp-${org}-${space}
+        xsappname: u4u-${org}-${space}
       path: ./xs-security.json
       service: xsuaa
       service-plan: application
-  - name: sap-cap-btp-destination
+  - name: u4u-destination
     type: org.cloudfoundry.managed-service
     parameters:
       config:
@@ -112,7 +112,7 @@ resources:
             existing_destinations_policy: update
       service: destination
       service-plan: lite
-  - name: sap-cap-btp-html5-repo-host
+  - name: u4u-html5-repo-host
     type: org.cloudfoundry.managed-service
     parameters:
       service: html5-apps-repo

@@ -1,5 +1,5 @@
 {
-  "name": "sap-cap-btp",
+  "name": "u4u",
   "version": "1.0.0",
   "description": "Cognizant Utility4U",
   "license": "UNLICENSED",
@@ -31,7 +31,7 @@
     "start": "cds-serve",
     "build": "rimraf resources mta_archives && mbt build --mtar archive",
     "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
-    "undeploy": "cf undeploy sap-cap-btp --delete-services --delete-service-keys --delete-service-brokers"
+    "undeploy": "cf undeploy u4u --delete-services --delete-service-keys --delete-service-brokers"
   },
   "sapux": [
     "app/bpem"

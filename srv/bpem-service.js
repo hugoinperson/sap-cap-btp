@@ -11,6 +11,16 @@ class BpemService extends cds.ApplicationService {
       return cases
     })
   }
+
+  numberOfCases(data) { 
+  console.log('AAAA', data)
+
+    return {
+      number: '6,432',
+      state: 'Error',
+      details: 'Q4, 2023'
+    }
+  }
 }
 
 module.exports = BpemService

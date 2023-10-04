@@ -22,6 +22,9 @@ sap.ui.define([
 
             // create the views based on the url/hash
             this.getRouter().initialize();
+            
+            // if you are a manager
+            this.getRouter().navTo("overview");
         },
 
         /**
