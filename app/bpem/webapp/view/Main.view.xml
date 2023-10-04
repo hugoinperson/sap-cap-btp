@@ -1,4 +1,4 @@
-<mvc:View controllerName="ns.test.controller.Main"
+<mvc:View controllerName="u4u.bpem.controller.Main"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:semantic="sap.f.semantic">
@@ -9,7 +9,7 @@
 
         <semantic:titleHeading>
             <Title id="title"
-                text="Test Page"
+                text="BPEM Case Management"
                 level="H2"/>
         </semantic:titleHeading>
 
@@ -19,8 +19,7 @@
         </semantic:content>
 
         <semantic:sendEmailAction>
-            <semantic:SendEmailAction id="shareEmail"
-                press=".onShareEmailPress"/>
+            <semantic:SendEmailAction id="shareEmail" />
         </semantic:sendEmailAction>
 
     </semantic:SemanticPage>

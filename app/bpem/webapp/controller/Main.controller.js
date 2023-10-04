@@ -3,7 +3,7 @@ sap.ui.define([
 ], function (BaseController) {
     "use strict";
 
-    return BaseController.extend("ns.test.controller.Worklist", {
+    return BaseController.extend("u4u.bpem.controller.Worklist", {
 
     });
 });

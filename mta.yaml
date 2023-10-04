@@ -80,8 +80,8 @@ modules:
           name: nsmitigations
           target-path: resources/
         - artifacts:
-            - nstest.zip
-          name: nstest
+            - u4ubpem.zip
+          name: u4ubpem
           target-path: resources/
   - name: nsrisks # Build of the SAP Fiori application. Each build result is a ZIP file
     type: html5
@@ -103,9 +103,9 @@ modules:
         - npm install
         - npm run build:cf
       supported-platforms: []
-  - name: nstest # Build of the SAP Fiori application. Each build result is a ZIP file
+  - name: u4ubpem # Build of the SAP Fiori application. Each build result is a ZIP file
     type: html5
-    path: app/test
+    path: app/bpem
     build-parameters:
       build-result: dist
       builder: custom
