@@ -5,7 +5,6 @@
   "javascript.format.enable": true,
   "eslint.format.enable": true,
   "eslint.run": "onSave",
-  "eslint.alwaysShowStatus": true,
   "eslint.options": {
     "extensions": [
       ".html",

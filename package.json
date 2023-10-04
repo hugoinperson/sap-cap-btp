@@ -8,6 +8,7 @@
     "@sap-cloud-sdk/http-client": "^3.6.0",
     "@sap/cds": "^7",
     "@sap/xssec": "^3",
+    "dotenv": "^16.3.1",
     "express": "^4",
     "passport": "^0"
   },
@@ -38,6 +39,16 @@
   ],
   "cds": {
     "requires": {
+      "Z_C_BPEM_CASE_ODATA_CDS": {
+        "kind": "odata-v2",
+        "model": "srv/external/Z_C_BPEM_CASE_ODATA_CDS",
+        "[production]": {
+          "credentials": {
+            "path": "/sap/opu/odata/sap/Z_C_BPEM_CASE_ODATA_CDS",
+            "destination": "CXD"
+          }
+        }
+      },
       "[production]": {
         "auth": "xsuaa"
       }

@@ -1,0 +1,1803 @@
+{
+  "meta": {
+    "creator": "cds-dk 7.1.1"
+  },
+  "$version": "2.0",
+  "definitions": {
+    "Z_C_BPEM_CASE_ODATA_CDS": {
+      "kind": "service",
+      "@cds.external": true,
+      "@m.IsDefaultEntityContainer": "true",
+      "@sap.supported.formats": "atom json xlsx"
+    },
+    "Z_C_BPEM_CASE_ODATA_CDS.Z_C_BPEM_CASE_ODATA": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.content.version": "1",
+      "@sap.label": "OData for BPEM Custom Fiori Tile",
+      "@sap.semantics": "aggregate",
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.filterable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "notNull": true
+        },
+        "TotaledProperties": {
+          "type": "cds.LargeString",
+          "@sap.aggregation.role": "totaled-properties-list",
+          "@sap.is.annotation": "true",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseOriginalDate": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.aggregation.role": "dimension",
+          "@sap.text": "BPEMCaseOriginalDate_T",
+          "@sap.label": "Original Date",
+          "@sap.quickinfo": "Original Date of Clarification Case",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.semantics": "yearmonthday"
+        },
+        "BPEMCaseOriginalDate_T": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.label": "Original Date (Description)",
+          "@sap.quickinfo": "Original Date of Clarification Case",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.filterable": "false"
+        },
+        "BPEMCaseTypeName": {
+          "type": "cds.String",
+          "length": 50,
+          "@sap.aggregation.role": "dimension",
+          "@sap.label": "Case Type Text",
+          "@sap.quickinfo": "Text for Case Type",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false"
+        },
+        "BPEMBusinessProcessCode": {
+          "type": "cds.String",
+          "length": 8,
+          "@sap.aggregation.role": "dimension",
+          "@sap.label": "Business Process",
+          "@sap.quickinfo": "Business Process Code",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.value.list": "standard"
+        },
+        "BPEMCaseCategory": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.aggregation.role": "dimension",
+          "@sap.label": "Case Category",
+          "@sap.quickinfo": "Clarification Case Category",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.value.list": "standard"
+        },
+        "BPEMCaseForwardingReason": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.aggregation.role": "dimension",
+          "@sap.label": "Forwarding Reason",
+          "@sap.quickinfo": "Reason for Forwarding",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.value.list": "standard"
+        },
+        "BPEMCasePriority": {
+          "type": "cds.String",
+          "length": 1,
+          "@sap.aggregation.role": "dimension",
+          "@sap.label": "Case Priority",
+          "@sap.quickinfo": "Clarification Case Priority",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.value.list": "standard"
+        },
+        "BPEMCaseStatus": {
+          "type": "cds.String",
+          "length": 1,
+          "@sap.aggregation.role": "dimension",
+          "@sap.label": "Processing Status",
+          "@sap.quickinfo": "Processing Status of Clarification Case",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.value.list": "standard"
+        },
+        "BPEMCaseType": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.aggregation.role": "dimension",
+          "@sap.label": "Case Type",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.value.list": "standard"
+        },
+        "BPEMCaseMainObjectTypeText": {
+          "type": "cds.String",
+          "length": 80,
+          "@sap.aggregation.role": "dimension",
+          "@sap.label": "Description",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false"
+        },
+        "BPEMCaseCreationDate": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.aggregation.role": "dimension",
+          "@sap.text": "BPEMCaseCreationDate_T",
+          "@sap.label": "Created On",
+          "@sap.quickinfo": "Record Created On",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.semantics": "yearmonthday"
+        },
+        "BPEMCaseCreationDate_T": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.label": "Created On (Description)",
+          "@sap.quickinfo": "Record Created On",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.filterable": "false"
+        },
+        "BPEMCaseForwardingReasonName": {
+          "type": "cds.String",
+          "length": 50,
+          "@sap.aggregation.role": "dimension",
+          "@sap.label": "Forwarding Reason",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false"
+        },
+        "BPEMCaseStatusName": {
+          "type": "cds.String",
+          "length": 60,
+          "@sap.aggregation.role": "dimension",
+          "@sap.label": "Clarif. Case Status",
+          "@sap.quickinfo": "Clarification Case Status Name",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false"
+        },
+        "BPEMCaseMainObject": {
+          "type": "cds.String",
+          "length": 70,
+          "@sap.aggregation.role": "dimension",
+          "@sap.label": "Key",
+          "@sap.quickinfo": "Object key",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false"
+        },
+        "AuthorizationGroup": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.aggregation.role": "dimension",
+          "@sap.label": "Authorization",
+          "@sap.quickinfo": "Authorization Group",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false"
+        },
+        "BPEMCaseMainObjectType": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.aggregation.role": "dimension",
+          "@sap.label": "Primary Object Type",
+          "@sap.quickinfo": "Object Type of Primary Business Object of Clarification Case",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false"
+        },
+        "BPEMCaseCurrentProcessor": {
+          "type": "cds.String",
+          "length": 12,
+          "@sap.aggregation.role": "dimension",
+          "@sap.label": "Processor",
+          "@sap.quickinfo": "Processor for Clarification Case",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false"
+        },
+        "BPEMCasePriorityName": {
+          "type": "cds.String",
+          "length": 60,
+          "@sap.aggregation.role": "dimension",
+          "@sap.label": "Clarif.Case Priority",
+          "@sap.quickinfo": "Clarification Case Priority Name",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false"
+        },
+        "BPEMBusinessProcessCodeName": {
+          "type": "cds.String",
+          "length": 60,
+          "@sap.aggregation.role": "dimension",
+          "@sap.label": "Bus. Proc. Code Name",
+          "@sap.quickinfo": "Business Process Code Name",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false"
+        },
+        "BPEMCaseCategoryName": {
+          "type": "cds.String",
+          "length": 50,
+          "@sap.aggregation.role": "dimension",
+          "@sap.label": "Case Category Text",
+          "@sap.quickinfo": "Short Text for Clarification Case Category",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false"
+        },
+        "BPEMCasePreviousProcessor": {
+          "type": "cds.String",
+          "length": 12,
+          "@sap.aggregation.role": "dimension",
+          "@sap.label": "Previous Processor",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false"
+        },
+        "BPEMCase": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.aggregation.role": "dimension",
+          "@sap.label": "Clarification Case",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false"
+        },
+        "Duedate": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.aggregation.role": "dimension",
+          "@sap.text": "Duedate_T",
+          "@sap.label": "Due Date",
+          "@sap.quickinfo": "Case Due Date",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.semantics": "yearmonthday"
+        },
+        "Duedate_T": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.label": "Due Date (Description)",
+          "@sap.quickinfo": "Case Due Date",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.filterable": "false"
+        },
+        "BPEMcaseCount": {
+          "type": "cds.Decimal",
+          "precision": 42,
+          "scale": 0,
+          "@sap.aggregation.role": "measure",
+          "@sap.filterable": "false",
+          "@sap.text": "BPEMcaseCount_F",
+          "@sap.updatable": "false",
+          "@sap.label": "BPEMCASECOUNT",
+          "@sap.creatable": "false"
+        },
+        "BPEMcaseCount_F": {
+          "type": "cds.String",
+          "length": 60,
+          "@sap.label": "BPEMCASECOUNT (Formatted)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.filterable": "false"
+        }
+      }
+    },
+    "Z_C_BPEM_CASE_ODATA_CDS.BPEMBusinessProcessCode": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.content.version": "1",
+      "@sap.label": "Business Process (Master Data)",
+      "@sap.value.list": "true",
+      "elements": {
+        "BPEMBusinessProcessCode_ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 8,
+          "@sap.text": "BPEMBusinessProcessCodeText",
+          "@sap.label": "Business Process",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "notNull": true
+        },
+        "BPEMBusinessProcessCodeText": {
+          "type": "cds.LargeString",
+          "@sap.label": "Business Process (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false"
+        }
+      }
+    },
+    "Z_C_BPEM_CASE_ODATA_CDS.BPEMBusinessProcessCodeResults": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.content.version": "1",
+      "@sap.label": "Business Process (Booked Data)",
+      "@sap.value.list": "true",
+      "elements": {
+        "BPEMBusinessProcessCode": {
+          "key": true,
+          "type": "cds.String",
+          "length": 8,
+          "@sap.label": "Business Process",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "notNull": true
+        },
+        "BPEMCaseOriginalDate": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.text": "BPEMCaseOriginalDate_T",
+          "@sap.label": "Original Date",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseOriginalDate_T": {
+          "type": "cds.LargeString",
+          "@sap.label": "Original Date (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "BPEMCaseTypeName": {
+          "type": "cds.String",
+          "length": 50,
+          "@sap.label": "Case Type Text",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCategory": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Case Category",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseForwardingReason": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Forwarding Reason",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCasePriority": {
+          "type": "cds.String",
+          "length": 1,
+          "@sap.label": "Case Priority",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseStatus": {
+          "type": "cds.String",
+          "length": 1,
+          "@sap.label": "Processing Status",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseType": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Case Type",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseMainObjectTypeText": {
+          "type": "cds.String",
+          "length": 80,
+          "@sap.label": "Description",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCreationDate": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.text": "BPEMCaseCreationDate_T",
+          "@sap.label": "Created On",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCreationDate_T": {
+          "type": "cds.LargeString",
+          "@sap.label": "Created On (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "BPEMCaseForwardingReasonName": {
+          "type": "cds.String",
+          "length": 50,
+          "@sap.label": "Forwarding Reason",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseStatusName": {
+          "type": "cds.String",
+          "length": 60,
+          "@sap.label": "Clarif. Case Status",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseMainObject": {
+          "type": "cds.String",
+          "length": 70,
+          "@sap.label": "Key",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "AuthorizationGroup": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Authorization",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseMainObjectType": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.label": "Primary Object Type",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCurrentProcessor": {
+          "type": "cds.String",
+          "length": 12,
+          "@sap.label": "Processor",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCasePriorityName": {
+          "type": "cds.String",
+          "length": 60,
+          "@sap.label": "Clarif.Case Priority",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMBusinessProcessCodeName": {
+          "type": "cds.String",
+          "length": 60,
+          "@sap.label": "Bus. Proc. Code Name",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCategoryName": {
+          "type": "cds.String",
+          "length": 50,
+          "@sap.label": "Case Category Text",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCasePreviousProcessor": {
+          "type": "cds.String",
+          "length": 12,
+          "@sap.label": "Previous Processor",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCase": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.label": "Clarification Case",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "Duedate": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.text": "Duedate_T",
+          "@sap.label": "Due Date",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "Duedate_T": {
+          "type": "cds.LargeString",
+          "@sap.label": "Due Date (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        }
+      }
+    },
+    "Z_C_BPEM_CASE_ODATA_CDS.BPEMCaseCategory": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.content.version": "1",
+      "@sap.label": "Case Category (Master Data)",
+      "@sap.value.list": "true",
+      "elements": {
+        "BPEMCaseCategory_ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 4,
+          "@sap.text": "BPEMCaseCategoryText",
+          "@sap.label": "Case Category",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "notNull": true
+        },
+        "BPEMCaseCategoryText": {
+          "type": "cds.LargeString",
+          "@sap.label": "Case Category (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false"
+        }
+      }
+    },
+    "Z_C_BPEM_CASE_ODATA_CDS.BPEMCaseCategoryResults": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.content.version": "1",
+      "@sap.label": "Case Category (Booked Data)",
+      "@sap.value.list": "true",
+      "elements": {
+        "BPEMCaseCategory": {
+          "key": true,
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Case Category",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "notNull": true
+        },
+        "BPEMCaseOriginalDate": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.text": "BPEMCaseOriginalDate_T",
+          "@sap.label": "Original Date",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseOriginalDate_T": {
+          "type": "cds.LargeString",
+          "@sap.label": "Original Date (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "BPEMCaseTypeName": {
+          "type": "cds.String",
+          "length": 50,
+          "@sap.label": "Case Type Text",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMBusinessProcessCode": {
+          "type": "cds.String",
+          "length": 8,
+          "@sap.label": "Business Process",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseForwardingReason": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Forwarding Reason",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCasePriority": {
+          "type": "cds.String",
+          "length": 1,
+          "@sap.label": "Case Priority",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseStatus": {
+          "type": "cds.String",
+          "length": 1,
+          "@sap.label": "Processing Status",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseType": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Case Type",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseMainObjectTypeText": {
+          "type": "cds.String",
+          "length": 80,
+          "@sap.label": "Description",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCreationDate": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.text": "BPEMCaseCreationDate_T",
+          "@sap.label": "Created On",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCreationDate_T": {
+          "type": "cds.LargeString",
+          "@sap.label": "Created On (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "BPEMCaseForwardingReasonName": {
+          "type": "cds.String",
+          "length": 50,
+          "@sap.label": "Forwarding Reason",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseStatusName": {
+          "type": "cds.String",
+          "length": 60,
+          "@sap.label": "Clarif. Case Status",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseMainObject": {
+          "type": "cds.String",
+          "length": 70,
+          "@sap.label": "Key",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "AuthorizationGroup": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Authorization",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseMainObjectType": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.label": "Primary Object Type",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCurrentProcessor": {
+          "type": "cds.String",
+          "length": 12,
+          "@sap.label": "Processor",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCasePriorityName": {
+          "type": "cds.String",
+          "length": 60,
+          "@sap.label": "Clarif.Case Priority",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMBusinessProcessCodeName": {
+          "type": "cds.String",
+          "length": 60,
+          "@sap.label": "Bus. Proc. Code Name",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCategoryName": {
+          "type": "cds.String",
+          "length": 50,
+          "@sap.label": "Case Category Text",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCasePreviousProcessor": {
+          "type": "cds.String",
+          "length": 12,
+          "@sap.label": "Previous Processor",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCase": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.label": "Clarification Case",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "Duedate": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.text": "Duedate_T",
+          "@sap.label": "Due Date",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "Duedate_T": {
+          "type": "cds.LargeString",
+          "@sap.label": "Due Date (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        }
+      }
+    },
+    "Z_C_BPEM_CASE_ODATA_CDS.BPEMCaseForwardingReason": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.content.version": "1",
+      "@sap.label": "Forwarding Reason (Master Data)",
+      "@sap.value.list": "true",
+      "elements": {
+        "BPEMCaseForwardingReason_ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 4,
+          "@sap.text": "BPEMCaseForwardingReasonText",
+          "@sap.label": "Forwarding Reason",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "notNull": true
+        },
+        "BPEMCaseForwardingReasonText": {
+          "type": "cds.LargeString",
+          "@sap.label": "Forwarding Reason (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false"
+        }
+      }
+    },
+    "Z_C_BPEM_CASE_ODATA_CDS.BPEMCaseForwardingReasonResults": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.content.version": "1",
+      "@sap.label": "Forwarding Reason (Booked Data)",
+      "@sap.value.list": "true",
+      "elements": {
+        "BPEMCaseForwardingReason": {
+          "key": true,
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Forwarding Reason",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "notNull": true
+        },
+        "BPEMCaseOriginalDate": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.text": "BPEMCaseOriginalDate_T",
+          "@sap.label": "Original Date",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseOriginalDate_T": {
+          "type": "cds.LargeString",
+          "@sap.label": "Original Date (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "BPEMCaseTypeName": {
+          "type": "cds.String",
+          "length": 50,
+          "@sap.label": "Case Type Text",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMBusinessProcessCode": {
+          "type": "cds.String",
+          "length": 8,
+          "@sap.label": "Business Process",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCategory": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Case Category",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCasePriority": {
+          "type": "cds.String",
+          "length": 1,
+          "@sap.label": "Case Priority",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseStatus": {
+          "type": "cds.String",
+          "length": 1,
+          "@sap.label": "Processing Status",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseType": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Case Type",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseMainObjectTypeText": {
+          "type": "cds.String",
+          "length": 80,
+          "@sap.label": "Description",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCreationDate": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.text": "BPEMCaseCreationDate_T",
+          "@sap.label": "Created On",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCreationDate_T": {
+          "type": "cds.LargeString",
+          "@sap.label": "Created On (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "BPEMCaseForwardingReasonName": {
+          "type": "cds.String",
+          "length": 50,
+          "@sap.label": "Forwarding Reason",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseStatusName": {
+          "type": "cds.String",
+          "length": 60,
+          "@sap.label": "Clarif. Case Status",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseMainObject": {
+          "type": "cds.String",
+          "length": 70,
+          "@sap.label": "Key",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "AuthorizationGroup": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Authorization",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseMainObjectType": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.label": "Primary Object Type",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCurrentProcessor": {
+          "type": "cds.String",
+          "length": 12,
+          "@sap.label": "Processor",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCasePriorityName": {
+          "type": "cds.String",
+          "length": 60,
+          "@sap.label": "Clarif.Case Priority",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMBusinessProcessCodeName": {
+          "type": "cds.String",
+          "length": 60,
+          "@sap.label": "Bus. Proc. Code Name",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCategoryName": {
+          "type": "cds.String",
+          "length": 50,
+          "@sap.label": "Case Category Text",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCasePreviousProcessor": {
+          "type": "cds.String",
+          "length": 12,
+          "@sap.label": "Previous Processor",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCase": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.label": "Clarification Case",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "Duedate": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.text": "Duedate_T",
+          "@sap.label": "Due Date",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "Duedate_T": {
+          "type": "cds.LargeString",
+          "@sap.label": "Due Date (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        }
+      }
+    },
+    "Z_C_BPEM_CASE_ODATA_CDS.BPEMCasePriority": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.content.version": "1",
+      "@sap.label": "Case Priority (Master Data)",
+      "@sap.value.list": "true",
+      "elements": {
+        "BPEMCasePriority_ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 1,
+          "@sap.text": "BPEMCasePriorityText",
+          "@sap.label": "Case Priority",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "notNull": true
+        },
+        "BPEMCasePriorityText": {
+          "type": "cds.LargeString",
+          "@sap.label": "Case Priority (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false"
+        }
+      }
+    },
+    "Z_C_BPEM_CASE_ODATA_CDS.BPEMCasePriorityResults": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.content.version": "1",
+      "@sap.label": "Case Priority (Booked Data)",
+      "@sap.value.list": "true",
+      "elements": {
+        "BPEMCasePriority": {
+          "key": true,
+          "type": "cds.String",
+          "length": 1,
+          "@sap.label": "Case Priority",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "notNull": true
+        },
+        "BPEMCaseOriginalDate": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.text": "BPEMCaseOriginalDate_T",
+          "@sap.label": "Original Date",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseOriginalDate_T": {
+          "type": "cds.LargeString",
+          "@sap.label": "Original Date (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "BPEMCaseTypeName": {
+          "type": "cds.String",
+          "length": 50,
+          "@sap.label": "Case Type Text",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMBusinessProcessCode": {
+          "type": "cds.String",
+          "length": 8,
+          "@sap.label": "Business Process",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCategory": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Case Category",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseForwardingReason": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Forwarding Reason",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseStatus": {
+          "type": "cds.String",
+          "length": 1,
+          "@sap.label": "Processing Status",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseType": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Case Type",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseMainObjectTypeText": {
+          "type": "cds.String",
+          "length": 80,
+          "@sap.label": "Description",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCreationDate": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.text": "BPEMCaseCreationDate_T",
+          "@sap.label": "Created On",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCreationDate_T": {
+          "type": "cds.LargeString",
+          "@sap.label": "Created On (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "BPEMCaseForwardingReasonName": {
+          "type": "cds.String",
+          "length": 50,
+          "@sap.label": "Forwarding Reason",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseStatusName": {
+          "type": "cds.String",
+          "length": 60,
+          "@sap.label": "Clarif. Case Status",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseMainObject": {
+          "type": "cds.String",
+          "length": 70,
+          "@sap.label": "Key",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "AuthorizationGroup": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Authorization",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseMainObjectType": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.label": "Primary Object Type",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCurrentProcessor": {
+          "type": "cds.String",
+          "length": 12,
+          "@sap.label": "Processor",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCasePriorityName": {
+          "type": "cds.String",
+          "length": 60,
+          "@sap.label": "Clarif.Case Priority",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMBusinessProcessCodeName": {
+          "type": "cds.String",
+          "length": 60,
+          "@sap.label": "Bus. Proc. Code Name",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCategoryName": {
+          "type": "cds.String",
+          "length": 50,
+          "@sap.label": "Case Category Text",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCasePreviousProcessor": {
+          "type": "cds.String",
+          "length": 12,
+          "@sap.label": "Previous Processor",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCase": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.label": "Clarification Case",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "Duedate": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.text": "Duedate_T",
+          "@sap.label": "Due Date",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "Duedate_T": {
+          "type": "cds.LargeString",
+          "@sap.label": "Due Date (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        }
+      }
+    },
+    "Z_C_BPEM_CASE_ODATA_CDS.BPEMCaseStatus": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.content.version": "1",
+      "@sap.label": "Processing Status (Master Data)",
+      "@sap.value.list": "true",
+      "elements": {
+        "BPEMCaseStatus_ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 1,
+          "@sap.text": "BPEMCaseStatusText",
+          "@sap.label": "Processing Status",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "notNull": true
+        },
+        "BPEMCaseStatusText": {
+          "type": "cds.LargeString",
+          "@sap.label": "Processing Status (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false"
+        }
+      }
+    },
+    "Z_C_BPEM_CASE_ODATA_CDS.BPEMCaseStatusResults": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.content.version": "1",
+      "@sap.label": "Processing Status (Booked Data)",
+      "@sap.value.list": "true",
+      "elements": {
+        "BPEMCaseStatus": {
+          "key": true,
+          "type": "cds.String",
+          "length": 1,
+          "@sap.label": "Processing Status",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "notNull": true
+        },
+        "BPEMCaseOriginalDate": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.text": "BPEMCaseOriginalDate_T",
+          "@sap.label": "Original Date",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseOriginalDate_T": {
+          "type": "cds.LargeString",
+          "@sap.label": "Original Date (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "BPEMCaseTypeName": {
+          "type": "cds.String",
+          "length": 50,
+          "@sap.label": "Case Type Text",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMBusinessProcessCode": {
+          "type": "cds.String",
+          "length": 8,
+          "@sap.label": "Business Process",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCategory": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Case Category",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseForwardingReason": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Forwarding Reason",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCasePriority": {
+          "type": "cds.String",
+          "length": 1,
+          "@sap.label": "Case Priority",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseType": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Case Type",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseMainObjectTypeText": {
+          "type": "cds.String",
+          "length": 80,
+          "@sap.label": "Description",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCreationDate": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.text": "BPEMCaseCreationDate_T",
+          "@sap.label": "Created On",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCreationDate_T": {
+          "type": "cds.LargeString",
+          "@sap.label": "Created On (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "BPEMCaseForwardingReasonName": {
+          "type": "cds.String",
+          "length": 50,
+          "@sap.label": "Forwarding Reason",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseStatusName": {
+          "type": "cds.String",
+          "length": 60,
+          "@sap.label": "Clarif. Case Status",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseMainObject": {
+          "type": "cds.String",
+          "length": 70,
+          "@sap.label": "Key",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "AuthorizationGroup": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Authorization",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseMainObjectType": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.label": "Primary Object Type",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCurrentProcessor": {
+          "type": "cds.String",
+          "length": 12,
+          "@sap.label": "Processor",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCasePriorityName": {
+          "type": "cds.String",
+          "length": 60,
+          "@sap.label": "Clarif.Case Priority",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMBusinessProcessCodeName": {
+          "type": "cds.String",
+          "length": 60,
+          "@sap.label": "Bus. Proc. Code Name",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCategoryName": {
+          "type": "cds.String",
+          "length": 50,
+          "@sap.label": "Case Category Text",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCasePreviousProcessor": {
+          "type": "cds.String",
+          "length": 12,
+          "@sap.label": "Previous Processor",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCase": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.label": "Clarification Case",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "Duedate": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.text": "Duedate_T",
+          "@sap.label": "Due Date",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "Duedate_T": {
+          "type": "cds.LargeString",
+          "@sap.label": "Due Date (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        }
+      }
+    },
+    "Z_C_BPEM_CASE_ODATA_CDS.BPEMCaseType": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.content.version": "1",
+      "@sap.label": "Case Type (Master Data)",
+      "@sap.value.list": "true",
+      "elements": {
+        "BPEMCaseType_ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 4,
+          "@sap.text": "BPEMCaseTypeText",
+          "@sap.label": "Case Type",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "notNull": true
+        },
+        "BPEMCaseTypeText": {
+          "type": "cds.LargeString",
+          "@sap.label": "Case Type (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false"
+        }
+      }
+    },
+    "Z_C_BPEM_CASE_ODATA_CDS.BPEMCaseTypeResults": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.content.version": "1",
+      "@sap.label": "Case Type (Booked Data)",
+      "@sap.value.list": "true",
+      "elements": {
+        "BPEMCaseType": {
+          "key": true,
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Case Type",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "notNull": true
+        },
+        "BPEMCaseOriginalDate": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.text": "BPEMCaseOriginalDate_T",
+          "@sap.label": "Original Date",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseOriginalDate_T": {
+          "type": "cds.LargeString",
+          "@sap.label": "Original Date (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "BPEMCaseTypeName": {
+          "type": "cds.String",
+          "length": 50,
+          "@sap.label": "Case Type Text",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMBusinessProcessCode": {
+          "type": "cds.String",
+          "length": 8,
+          "@sap.label": "Business Process",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCategory": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Case Category",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseForwardingReason": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Forwarding Reason",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCasePriority": {
+          "type": "cds.String",
+          "length": 1,
+          "@sap.label": "Case Priority",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseStatus": {
+          "type": "cds.String",
+          "length": 1,
+          "@sap.label": "Processing Status",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseMainObjectTypeText": {
+          "type": "cds.String",
+          "length": 80,
+          "@sap.label": "Description",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCreationDate": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.text": "BPEMCaseCreationDate_T",
+          "@sap.label": "Created On",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCreationDate_T": {
+          "type": "cds.LargeString",
+          "@sap.label": "Created On (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "BPEMCaseForwardingReasonName": {
+          "type": "cds.String",
+          "length": 50,
+          "@sap.label": "Forwarding Reason",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseStatusName": {
+          "type": "cds.String",
+          "length": 60,
+          "@sap.label": "Clarif. Case Status",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseMainObject": {
+          "type": "cds.String",
+          "length": 70,
+          "@sap.label": "Key",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "AuthorizationGroup": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Authorization",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseMainObjectType": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.label": "Primary Object Type",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCurrentProcessor": {
+          "type": "cds.String",
+          "length": 12,
+          "@sap.label": "Processor",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCasePriorityName": {
+          "type": "cds.String",
+          "length": 60,
+          "@sap.label": "Clarif.Case Priority",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMBusinessProcessCodeName": {
+          "type": "cds.String",
+          "length": 60,
+          "@sap.label": "Bus. Proc. Code Name",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCaseCategoryName": {
+          "type": "cds.String",
+          "length": 50,
+          "@sap.label": "Case Category Text",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCasePreviousProcessor": {
+          "type": "cds.String",
+          "length": 12,
+          "@sap.label": "Previous Processor",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "BPEMCase": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.label": "Clarification Case",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "Duedate": {
+          "type": "cds.String",
+          "length": 10,
+          "@sap.text": "Duedate_T",
+          "@sap.label": "Due Date",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false"
+        },
+        "Duedate_T": {
+          "type": "cds.LargeString",
+          "@sap.label": "Due Date (Description)",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        }
+      }
+    },
+    "Z_C_BPEM_CASE_ODATA_CDS.AdditionalMetadata": {
+      "kind": "entity",
+      "@cds.external": true,
+      "@cds.persistence.skip": true,
+      "@sap.creatable": "false",
+      "@sap.updatable": "false",
+      "@sap.deletable": "false",
+      "@sap.content.version": "1",
+      "elements": {
+        "ODataQueryMetadata": {
+          "key": true,
+          "type": "cds.LargeString",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false",
+          "notNull": true
+        },
+        "ODataQueryMetadataValue_Current": {
+          "type": "cds.LargeString",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        },
+        "ODataQueryMetadataValueAtDefine": {
+          "type": "cds.LargeString",
+          "@sap.creatable": "false",
+          "@sap.updatable": "false",
+          "@sap.sortable": "false",
+          "@sap.filterable": "false"
+        }
+      }
+    }
+  }
+}

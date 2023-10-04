@@ -1,13 +1,13 @@
 {
-  "extends": "standard",
+  "extends": "eslint:recommended",
   "env": {
     "es2022": true,
     "node": true,
     "browser": true
   },
-  "plugins": [
-    "eslint-plugin-html"
-  ],
+  "parserOptions": {
+    "ecmaVersion": 12
+  },
   "globals": {
     "SELECT": true,
     "INSERT": true,
