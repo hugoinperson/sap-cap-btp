@@ -1,1 +1,1 @@
-using RiskService as service from '../../srv/risk-service';
+using BpemService as service from '../../srv/bpem-service';

@@ -1,10 +1,10 @@
 <mvc:View controllerName="u4u.bpem.controller.App"
-    displayBlock="true"
-    xmlns="sap.m"
-    xmlns:mvc="sap.ui.core.mvc">
+  displayBlock="true"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc">
 
-    <App id="app"
-        busy="{appView>/busy}"
-        busyIndicatorDelay="{appView>/delay}"/>
+  <App id="app"
+    busy="{appView>/busy}"
+    busyIndicatorDelay="{appView>/delay}"/>
 
 </mvc:View>

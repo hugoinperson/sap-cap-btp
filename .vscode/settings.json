@@ -1,0 +1,31 @@
+{
+  "editor.tabSize": 2,
+  "editor.codeLens": true,
+  "editor.formatOnSave": true,
+  "javascript.format.enable": true,
+  "eslint.format.enable": true,
+  "eslint.run": "onSave",
+  "eslint.alwaysShowStatus": true,
+  "eslint.options": {
+    "extensions": [
+      ".html",
+      ".js",
+      ".jsx"
+    ]
+  },
+  "eslint.validate": [
+    "html",
+    "javascript",
+    "javascriptreact"
+  ],
+  "[javascript]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+}

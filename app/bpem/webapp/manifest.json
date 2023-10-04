@@ -22,8 +22,8 @@
       }
     },
     "dataSources": {
-      "mainService": {
-        "uri": "/odata/v4/service/risk/",
+      "bpemService": {
+        "uri": "/odata/v4/bpem/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -75,8 +75,8 @@
           "bundleName": "u4u.bpem.i18n.i18n"
         }
       },
-      "": {
-        "dataSource": "mainService",
+      "bpem": {
+        "dataSource": "bpemService",
         "preload": true,
         "settings": {
           "synchronizationMode": "None",

@@ -1,9 +1,9 @@
 sap.ui.define([
-    "./BaseController"
+  './BaseController'
 ], function (BaseController) {
-    "use strict";
+  'use strict'
 
-    return BaseController.extend("u4u.bpem.controller.Worklist", {
+  return BaseController.extend('u4u.bpem.controller.Worklist', {
 
-    });
-});
+  })
+})

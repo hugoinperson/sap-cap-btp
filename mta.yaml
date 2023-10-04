@@ -8,7 +8,6 @@ modules:
     path: gen/srv
     requires:
       - name: sap-cap-btp-uaa
-      - name: sap-cap-btp-db
     provides:
       - name: srv-api
         properties:
@@ -17,13 +16,6 @@ modules:
       buildpack: nodejs_buildpack
     build-parameters:
       builder: npm-ci
-  - name: sap-cap-btp-db-deployer
-    type: hdb
-    path: gen/db
-    requires:
-      - name: sap-cap-btp-db
-    parameters:
-      buildpack: nodejs_buildpack
   - name: sap-cap-btp-destinations
     type: com.sap.application.content
     requires:
@@ -72,37 +64,9 @@ modules:
       build-result: resources
       requires:
         - artifacts:
-            - nsrisks.zip
-          name: nsrisks
-          target-path: resources/
-        - artifacts:
-            - nsmitigations.zip
-          name: nsmitigations
-          target-path: resources/
-        - artifacts:
             - u4ubpem.zip
           name: u4ubpem
           target-path: resources/
-  - name: nsrisks # Build of the SAP Fiori application. Each build result is a ZIP file
-    type: html5
-    path: app/risks
-    build-parameters:
-      build-result: dist
-      builder: custom
-      commands:
-        - npm install
-        - npm run build:cf
-      supported-platforms: []
-  - name: nsmitigations # Build of the SAP Fiori application. Each build result is a ZIP file
-    type: html5
-    path: app/mitigations
-    build-parameters:
-      build-result: dist
-      builder: custom
-      commands:
-        - npm install
-        - npm run build:cf
-      supported-platforms: []
   - name: u4ubpem # Build of the SAP Fiori application. Each build result is a ZIP file
     type: html5
     path: app/bpem
@@ -132,11 +96,6 @@ resources:
       path: ./xs-security.json
       service: xsuaa
       service-plan: application
-  - name: sap-cap-btp-db
-    type: com.sap.xs.hdi-container
-    parameters:
-      service: hana
-      service-plan: hdi-shared
   - name: sap-cap-btp-destination
     type: org.cloudfoundry.managed-service
     parameters:
@@ -167,4 +126,3 @@ build-parameters:
       commands:
         - npm install --production
         - npx -p @sap/cds-dk cds build --production
-        - npx rimraf gen/db/src/gen/data

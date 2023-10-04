@@ -1,25 +1,25 @@
 {
-    "[development]": {
-        "auth": {
-            "passport": {
-                "strategy": "mock",
-                "users": {
-                    "risk.viewer@tester.sap.com": {
-                        "password": "initial",
-                        "id": "risk.viewer@tester.sap.com",
-                        "roles": [
-                            "RiskViewer"
-                        ]
-                    },
-                    "risk.manager@tester.sap.com": {
-                        "password": "initial",
-                        "id": "risk.manager@tester.sap.com",
-                        "roles": [
-                            "RiskManager"
-                        ]
-                    }
-                }
-            }
+  "[development]": {
+    "auth": {
+      "passport": {
+        "strategy": "mock",
+        "users": {
+          "risk.viewer@tester.sap.com": {
+            "password": "initial",
+            "id": "risk.viewer@tester.sap.com",
+            "roles": [
+              "RiskViewer"
+            ]
+          },
+          "risk.manager@tester.sap.com": {
+            "password": "initial",
+            "id": "risk.manager@tester.sap.com",
+            "roles": [
+              "RiskManager"
+            ]
+          }
         }
+      }
     }
+  }
 }
