@@ -8,6 +8,8 @@ modules:
     path: gen/srv
     requires:
       - name: u4u-uaa
+      - name: u4u-destination
+      - name: u4u-connectivity
     provides:
       - name: srv-api
         properties:
@@ -96,6 +98,11 @@ resources:
       path: ./xs-security.json
       service: xsuaa
       service-plan: application
+  - name: u4u-connectivity
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: connectivity
+      service-plan: lite
   - name: u4u-destination
     type: org.cloudfoundry.managed-service
     parameters:
