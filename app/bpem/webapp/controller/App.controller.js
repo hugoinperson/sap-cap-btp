@@ -92,13 +92,13 @@ sap.ui.define([
       fontFamily: '\'Roboto\', \'Arial\', sans-serif',
       fontWeight: 'regular'
     }
-
+    
     window.WebChat.renderWebChat({
       directLine: window.WebChat.createDirectLine({ token: token }),
       store: store,
       styleSet,
       styleOptions: avatarOptions
-    }, document.getElementById('container-u4u.bpem---app--webchat'))
+    }, document.getElementById(`${this.getView().getId()}--webchat`))
 
     this._chatBotInitialized = true
   }
