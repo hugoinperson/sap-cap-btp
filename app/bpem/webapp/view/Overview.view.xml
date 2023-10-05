@@ -1,27 +1,45 @@
 <mvc:View xmlns="sap.m"
   xmlns:mvc="sap.ui.core.mvc"
+  xmlns:f="sap.f"
   xmlns:semantic="sap.f.semantic"
   controllerName="u4u.bpem.controller.Overview">
 
-  <semantic:SemanticPage id="page"
-    headerPinnable="false"
-    toggleHeaderOnTitleClick="false">
+  <f:DynamicPage toggleHeaderOnTitleClick="true"
+    showFooter="false">
 
-    <semantic:titleHeading>
-      <Title id="title"
-        text="Overview"
-        level="H2"/>
-    </semantic:titleHeading>
+    <f:title>
+      <f:DynamicPageTitle>
+        <f:heading>
+          <Title text="Overview"/>
+        </f:heading>
+        <f:navigationActions>
+          <Button id="enterFullScreenButton"
+            tooltip="Enter Full Screen Mode"
+            icon="sap-icon://full-screen"
+            type="Transparent"
+            press="handleFullScreen"
+            visible="{= ${/actionButtonsInfo/midColumn/fullScreen} !== null }"/>
+          <Button id="exitFullScreenButton"
+            tooltip="Exit Full Screen Mode"
+            icon="sap-icon://exit-full-screen"
+            type="Transparent"
+            press="handleExitFullScreen"
+            visible="{= ${/actionButtonsInfo/midColumn/exitFullScreen} !== null }" />
+          <Button id="closeMiddleColumnButton"
+            tooltip="Close middle column"
+            icon="sap-icon://decline"
+            type="Transparent"
+            press="handleClose"
+            visible="{= ${/actionButtonsInfo/midColumn/closeColumn} !== null }" />
+        </f:navigationActions>
+      </f:DynamicPageTitle>
+    </f:title>
 
-    <semantic:content>
-      <Text id="welcome"
-        text="Overview" />
-    </semantic:content>
+    <f:content>
+      <Text text="Overview" />
+    </f:content>
 
-    <semantic:sendEmailAction>
-      <semantic:SendEmailAction id="shareEmail" />
-    </semantic:sendEmailAction>
+  </f:DynamicPage>
 
-  </semantic:SemanticPage>
 
 </mvc:View>

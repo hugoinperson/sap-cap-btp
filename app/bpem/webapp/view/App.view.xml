@@ -8,54 +8,25 @@
   <tnt:ToolPage>
     <tnt:header>
       <tnt:ToolHeader>
-        <Image class="sapUiSmallMarginBegin"
-          height="1.5rem"
-          src="img/logo.png" />
         <Title level="H1"
-          text="{i18n>appTitle}">
+          text="BPEM Case Management">
           <layoutData>
             <OverflowToolbarLayoutData shrinkable="true" />
           </layoutData>
         </Title>
-        <ToolbarSpacer>
-          <layoutData>
-            <OverflowToolbarLayoutData priority="NeverOverflow"
-              minWidth="20px" />
-          </layoutData>
-        </ToolbarSpacer>
-        <tnt:ToolHeaderUtilitySeparator />
-        <Avatar initials="MN"
-          displaySize="XS">
+        <ToolbarSpacer/>
+        <Avatar src="sap-icon://heatmap-chart"
+          displaySize="XS"
+          showBorder="true"
+          press="onPress"/>
+        <!-- <Avatar initials="MN" displaySize="XS">
           <layoutData>
             <OverflowToolbarLayoutData priority="NeverOverflow" />
           </layoutData>
-        </Avatar>
+        </Avatar> -->
       </tnt:ToolHeader>
     </tnt:header>
-    <tnt:subHeader>
-      <tnt:ToolHeader>
-        <IconTabHeader id="iconTabHeader"
-          items="{path: 'App>/navigation'}"
-          select=".onTabSelect"
-          mode="Inline">
-          <layoutData>
-            <OverflowToolbarLayoutData priority="NeverOverflow"
-              shrinkable="true" />
-          </layoutData>
-          <items>
-            <IconTabFilter items="{App>items}"
-              text="{App>title}"
-              key="{App>key}"
-              icon="{App>icon}">
-              <items>
-                <IconTabFilter text="{App>title}"
-                  key="{App>key}" />
-              </items>
-            </IconTabFilter>
-          </items>
-        </IconTabHeader>
-      </tnt:ToolHeader>
-    </tnt:subHeader>
+
     <tnt:mainContents>
       <f:FlexibleColumnLayout id="app"
         stateChange="onStateChanged"
