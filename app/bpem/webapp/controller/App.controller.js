@@ -14,6 +14,35 @@ sap.ui.define([
     this._chatBotInitialized = false
   }
 
+  // _Controller.prototype.onStateChanged = function (oEvent) {
+  //   const bIsNavigationArrow = oEvent.getParameter('isNavigationArrow')
+  //   const sLayout = oEvent.getParameter('layout')
+
+  //   this._updateUIElements()
+
+  //   // Replace the URL with the new layout if a navigation arrow was used
+  //   if (bIsNavigationArrow) {
+  //     this.oRouter.navTo(
+  //       this.currentRouteName,
+  //       {
+  //         layout: sLayout,
+  //         product: this.currentProduct,
+  //         supplier: this.currentSupplier
+  //       },
+  //       true
+  //     )
+  //   }
+  // }
+
+  // _Controller.prototype._updateUIElements = function () {
+  //   const oModel = this.oOwnerComponent.getModel()
+  //   let oUIState
+  //   this.oOwnerComponent.getHelper().then(function (oHelper) {
+  //     oUIState = oHelper.getCurrentUIState()
+  //     oModel.setData(oUIState)
+  //   })
+  // }
+
   _Controller.prototype.onPress = async function (event) {
     const button = event.getSource()
 

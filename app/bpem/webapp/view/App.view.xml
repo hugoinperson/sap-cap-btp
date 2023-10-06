@@ -1,24 +1,10 @@
-<mvc:View height="100%"
+<mvc:View displayBlock="true"
+  height="100%"
   xmlns="sap.m"
   xmlns:f="sap.f"
   xmlns:tnt="sap.tnt"
   xmlns:mvc="sap.ui.core.mvc"
   controllerName="u4u.bpem.controller.App">
-
-  <!-- <tnt:ToolPage class="sapUiResponsiveContentPadding">
-    <tnt:header>
-      <tnt:ToolHeader>
-        <Title level="H1" text="BPEM Case Management">
-        </Title>
-        <ToolbarSpacer/>
-        <Avatar src="sap-icon://heatmap-chart" displaySize="XS" showBorder="true" press="onPress"/>
-      </tnt:ToolHeader>
-    </tnt:header>
-
-    <tnt:mainContents>
-      <f:FlexibleColumnLayout id="app" stateChange="onStateChanged" backgroundDesign="Solid" layout="{/layout}" />
-    </tnt:mainContents>
-  </tnt:ToolPage> -->
 
   <Page title="BPEM Case Management"
     class="sapUiResponsivePadding--header">
@@ -33,7 +19,6 @@
       stateChange="onStateChanged"
       backgroundDesign="Solid"
       layout="{/layout}" />
-
   </Page>
 
 </mvc:View>
