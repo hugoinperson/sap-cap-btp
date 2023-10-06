@@ -3,9 +3,8 @@
   xmlns:html="http://www.w3.org/1999/xhtml">
   <Popover id="chatBotPopover"
     contentWidth="400px"
-    contentHeight="500px"
-    title="AI Assistant"
-    class="sapUiResponsivePadding--header sapUiResponsivePadding--footer"
+    contentHeight="700px"
+    title="Ask Diane"
     placement="Bottom"
     initialFocus="email">
     <content>

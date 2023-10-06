@@ -90,7 +90,7 @@
     },
     "routing": {
       "config": {
-        "routerClass": "sap.f.routing.Router",
+        "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "viewPath": "u4u.bpem.view",
         "controlId": "app",

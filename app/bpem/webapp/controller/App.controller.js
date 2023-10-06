@@ -42,7 +42,7 @@ sap.ui.define([
   }
 
   _Controller.prototype._initChatBot = function () { 
-    const token = 'kxNiWcBc_2E.wm82ZFeYmRZ-sC-syginmWZ_rYldQJtMX76jn-efTtc'
+    const token = 'rMQz-qVYVpE.RPO8XdRfsu-q4iWaPGDNICjcNSrI2fn-nWIQ_jWSo40'
     const avatarOptions = {
       botAvatarImage: 'https://docs.microsoft.com/en-us/azure/bot-service/v4sdk/media/logo_bot.svg?view=azure-bot-service-4.0',
       botAvatarInitials: 'UT',
@@ -80,7 +80,7 @@ sap.ui.define([
     const styleSet = window.WebChat.createStyleSet({
       // bubbleBackground: 'rgba(0, 0, 255, .1)',
       // bubbleFromUserBackground: 'rgba(0, 255, 0, .1)',
-      rootHeight: '490px',
+      rootHeight: '690px',
       rootWidth: '100%',
       backgroundColor: 'azure'
     })

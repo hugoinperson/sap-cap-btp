@@ -12,26 +12,6 @@
         <f:heading>
           <Title text="Overview"/>
         </f:heading>
-        <f:navigationActions>
-          <Button id="enterFullScreenButton"
-            tooltip="Enter Full Screen Mode"
-            icon="sap-icon://full-screen"
-            type="Transparent"
-            press="handleFullScreen"
-            visible="{= ${/actionButtonsInfo/midColumn/fullScreen} !== null }"/>
-          <Button id="exitFullScreenButton"
-            tooltip="Exit Full Screen Mode"
-            icon="sap-icon://exit-full-screen"
-            type="Transparent"
-            press="handleExitFullScreen"
-            visible="{= ${/actionButtonsInfo/midColumn/exitFullScreen} !== null }" />
-          <Button id="closeMiddleColumnButton"
-            tooltip="Close middle column"
-            icon="sap-icon://decline"
-            type="Transparent"
-            press="handleClose"
-            visible="{= ${/actionButtonsInfo/midColumn/closeColumn} !== null }" />
-        </f:navigationActions>
       </f:DynamicPageTitle>
     </f:title>
 

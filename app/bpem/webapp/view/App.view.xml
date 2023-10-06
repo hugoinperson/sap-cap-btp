@@ -1,38 +1,39 @@
-<mvc:View displayBlock="true"
+<mvc:View height="100%"
   xmlns="sap.m"
   xmlns:f="sap.f"
   xmlns:tnt="sap.tnt"
   xmlns:mvc="sap.ui.core.mvc"
   controllerName="u4u.bpem.controller.App">
 
-  <tnt:ToolPage>
+  <!-- <tnt:ToolPage class="sapUiResponsiveContentPadding">
     <tnt:header>
       <tnt:ToolHeader>
-        <Title level="H1"
-          text="BPEM Case Management">
-          <layoutData>
-            <OverflowToolbarLayoutData shrinkable="true" />
-          </layoutData>
+        <Title level="H1" text="BPEM Case Management">
         </Title>
         <ToolbarSpacer/>
-        <Avatar src="sap-icon://heatmap-chart"
-          displaySize="XS"
-          showBorder="true"
-          press="onPress"/>
-        <!-- <Avatar initials="MN" displaySize="XS">
-          <layoutData>
-            <OverflowToolbarLayoutData priority="NeverOverflow" />
-          </layoutData>
-        </Avatar> -->
+        <Avatar src="sap-icon://heatmap-chart" displaySize="XS" showBorder="true" press="onPress"/>
       </tnt:ToolHeader>
     </tnt:header>
 
     <tnt:mainContents>
-      <f:FlexibleColumnLayout id="app"
-        stateChange="onStateChanged"
-        backgroundDesign="Solid"
-        layout="{/layout}" />
+      <f:FlexibleColumnLayout id="app" stateChange="onStateChanged" backgroundDesign="Solid" layout="{/layout}" />
     </tnt:mainContents>
-  </tnt:ToolPage>
+  </tnt:ToolPage> -->
+
+  <Page title="BPEM Case Management"
+    class="sapUiResponsivePadding--header">
+    <headerContent>
+      <Avatar src="sap-icon://heatmap-chart"
+        displaySize="XS"
+        showBorder="true"
+        press="onPress"/>
+    </headerContent>
+
+    <f:FlexibleColumnLayout id="app"
+      stateChange="onStateChanged"
+      backgroundDesign="Solid"
+      layout="{/layout}" />
+
+  </Page>
 
 </mvc:View>
