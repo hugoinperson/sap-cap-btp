@@ -9,20 +9,22 @@ sap.ui.define([
 
   _Controller.prototype.onInit = function () {
     const model = this.getOwnerComponent().getModel('bpem')
-    const actionODataContextBinding = model.bindContext('/numberOfCases(...)')
-    actionODataContextBinding.setParameter('data', {
-      processor: 'jerry'
+    const contextBinding = model.bindContext('/overviewMetrics(...)')
+    contextBinding.setParameter('data', {
+      startDate: '',
+      endDate: ''
     })
-    actionODataContextBinding.execute().then(
-      function() {
-        var actionContext = actionODataContextBinding.getBoundContext()
+    contextBinding.execute().then(
+      () => {
+        var actionContext = contextBinding.getBoundContext()
         console.log(actionContext.getObject().value)
-      }.bind(this),
-      function (oError) {
+      },
+      (oError) => {
         MessageBox.alert(oError.message, {
-            icon : MessageBox.Icon.ERROR,
-            title : 'Error'})
-        }
+          icon: MessageBox.Icon.ERROR,
+          title: 'Error'
+        })
+      }
    )
   }
 
