@@ -112,25 +112,50 @@
           ]
         },
         {
-          "pattern": "cases",
-          "name": "cases",
+          "pattern": "list",
+          "name": "list",
           "target": [
-            "cases"
+            "list"
+          ]
+        },
+        {
+          "pattern": "detail/{caseId}/{layout}",
+          "name": "detail",
+          "target": [
+            "list",
+            "detail"
+          ]
+        },
+        {
+          "pattern": "detail/{caseId}/{processId}/{layout}",
+          "name": "process",
+          "target": [
+            "list",
+            "detail",
+            "process"
           ]
         }
       ],
       "targets": {
         "main": {
-          "viewName": "Main",
-          "viewId": "main",
-          "title": "{i18n>overviewTitle}",
+          "name": "Main",
           "controlAggregation": "beginColumnPages"
         },
         "overview": {
-          "viewName": "Overview",
-          "viewId": "overview",
-          "title": "{i18n>overviewTitle}",
+          "name": "Overview",
           "controlAggregation": "beginColumnPages"
+        },
+        "list": {
+          "name": "List",
+          "controlAggregation": "beginColumnPages"
+        },
+        "detail": {
+          "name": "Detail",
+          "controlAggregation": "midColumnPages"
+        },
+        "process": {
+          "name": "Process",
+          "controlAggregation": "endColumnPages"
         }
       }
     },
