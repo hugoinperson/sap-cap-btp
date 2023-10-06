@@ -86,13 +86,13 @@ resources:
       config:
         role-collections:
           - description: Manage Risks
-            name: RiskManager-${space}
+            name: BpemManager-${space}
             role-template-references:
-              - $XSAPPNAME.RiskManager
+              - $XSAPPNAME.BpemManager
           - description: View Risks
-            name: RiskViewer-${space}
+            name: BpemAgent-${space}
             role-template-references:
-              - $XSAPPNAME.RiskViewer
+              - $XSAPPNAME.BpemAgent
         tenant-mode: dedicated
         xsappname: u4u-${org}-${space}
       path: ./xs-security.json

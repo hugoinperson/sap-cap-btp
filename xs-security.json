@@ -1,29 +1,29 @@
 {
   "scopes": [
     {
-      "name": "$XSAPPNAME.RiskViewer",
-      "description": "RiskViewer"
+      "name": "$XSAPPNAME.BpemAgent",
+      "description": "BpemAgent"
     },
     {
-      "name": "$XSAPPNAME.RiskManager",
-      "description": "RiskManager"
+      "name": "$XSAPPNAME.BpemManager",
+      "description": "BpemManager"
     }
   ],
   "attributes": [],
   "role-templates": [
     {
-      "name": "RiskViewer",
+      "name": "BpemAgent",
       "description": "generated",
       "scope-references": [
-        "$XSAPPNAME.RiskViewer"
+        "$XSAPPNAME.BpemAgent"
       ],
       "attribute-references": []
     },
     {
-      "name": "RiskManager",
+      "name": "BpemManager",
       "description": "generated",
       "scope-references": [
-        "$XSAPPNAME.RiskManager"
+        "$XSAPPNAME.BpemManager"
       ],
       "attribute-references": []
     }

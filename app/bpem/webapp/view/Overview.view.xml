@@ -4,16 +4,9 @@
   xmlns:semantic="sap.f.semantic"
   controllerName="u4u.bpem.controller.Overview">
 
-  <f:DynamicPage toggleHeaderOnTitleClick="true"
-    showFooter="false">
-
-    <f:title>
-      <f:DynamicPageTitle>
-        <f:heading>
-          <Title text="Overview"/>
-        </f:heading>
-      </f:DynamicPageTitle>
-    </f:title>
+  <f:DynamicPage preserveHeaderStateOnScroll="true"
+    showFooter="false"
+    fitContent="true">
 
     <f:content>
       <Text text="Overview" />
